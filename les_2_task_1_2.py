@@ -74,7 +74,7 @@ for number_page in range(page_count):
         vac_name = vac.find('div', {'class': '_3mfro CuJz5 PlM3e _2JVkc _3LJqf'}).text
         vac_data['vac_name'] = vac_name
         vac_data['vac_site'] = site_sj
-        vac_link = site_sj + vac.find('a', {'class': 'icMQ_ _1QIBo f-test-link-Programmist_Python_(udaljonno) _2JivQ _3dPok'})['href']
+        vac_link = site_sj + vac.find('a')['href']
         vac_data['vac_link'] = vac_link
         vac_city = vac.find('span', {'class': '_3mfro f-test-text-company-item-location _9fXTd _2JVkc _3e53o'})
         city_data = re.findall('([А-Я]+[а-я]*)', vac_city.getText())
