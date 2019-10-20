@@ -55,9 +55,9 @@ for number_page in range(page_count):
              if not compens_type:
                  compens_type = 'руб.'
              if len(compens_data) > 1:
-                 compens = {'min': compens_data[0], 'max': compens_data[1], 'type': compens_type[0]}
+                 compens = {'min': int(compens_data[0].replace('\xa0', '')), 'max': int(compens_data[1].replace('\xa0', '')), 'type': compens_type[0]}
              else:
-                 compens = {'min': compens_data[0], 'max': 'Нет данных', 'type': compens_type[0]}
+                 compens = {'min': int(compens_data[0].replace('\xa0', '')), 'max': 'Нет данных', 'type': compens_type[0]}
          vac_data['compens'] = compens
 
          all_vac_name_hh.append(vac_data)
@@ -89,9 +89,9 @@ for number_page in range(page_count):
                 compens = {'min': 'Нет данных', 'max': 'Нет данных', 'type': 'Нет данных'}
             else:
                 if len(compens_data) > 1:
-                    compens = {'min': compens_data[0], 'max': compens_data[1], 'type': 'руб.'}
+                    compens = {'min': int(compens_data[0].replace('\xa0', '')), 'max': int(compens_data[1].replace('\xa0', '')), 'type': 'руб.'}
                 else:
-                    compens = {'min': compens_data[0], 'max': 'Не указано', 'type': 'руб.'}
+                    compens = {'min': int(compens_data[0].replace('\xa0', '')), 'max': 'Не указано', 'type': 'руб.'}
         vac_data['compens'] = compens
 
         all_vac_name_sj.append(vac_data)
