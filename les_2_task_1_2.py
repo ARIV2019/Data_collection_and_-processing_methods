@@ -74,7 +74,8 @@ for number_page in range(page_count):
         vac_name = vac.find('div', {'class': '_3mfro CuJz5 PlM3e _2JVkc _3LJqf'}).text
         vac_data['vac_name'] = vac_name
         vac_data['vac_site'] = site_sj
-        vac_link = site_sj + vac.find('a')['href']
+        main_info = vac.find('div', {'class': '_3syPg _1_bQo _2FJA4'}).findChild()
+        vac_link = site_sj + main_info.find('a')['href']
         vac_data['vac_link'] = vac_link
         vac_city = vac.find('span', {'class': '_3mfro f-test-text-company-item-location _9fXTd _2JVkc _3e53o'})
         city_data = re.findall('([А-Я]+[а-я]*)', vac_city.getText())
@@ -105,5 +106,5 @@ print(f'Вакансий с сайта {site_sj} по запросу <{search_wo
 data_sj = pd.DataFrame(all_vac_name_sj)
 data_hh = pd.DataFrame(all_vac_name_hh)
 
-pprint(data_sj.head(5))
-pprint(data_hh.head(5))
+pprint(data_sj.head(20))
+pprint(data_hh.head(20))
