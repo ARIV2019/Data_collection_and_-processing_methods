@@ -23,12 +23,12 @@ data = {}
 names = root.xpath("//section[@class='row b-top7-for-main js-top-seven']//*//div[@class='item']/a/text() | //div[@class='first-item']/h2/a/text()")
 hrefs = root.xpath("//section[@class='row b-top7-for-main js-top-seven']//*//div[@class='item']/a/@href | //div[@class='first-item']/h2/a/@href")
 date_news = root.xpath("//section[@class='row b-top7-for-main js-top-seven']//*//div[@class='item']/a//@datetime | //div[@class='first-item']/h2/a//@datetime")
-
+link = [(main_link + hrefs[i]) for i in range(len(names))]
 data['names'] = names
-data['href'] = hrefs
+data['link'] = link
 data['data_news'] = date_news
-
-data['source_new'] = main_link
+source = ['источник - Lenta.ru ' for i in range(len(names))]
+data['source_new'] = source
 
 news_link.append(data)
 
